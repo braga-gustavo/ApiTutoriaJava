@@ -1,8 +1,8 @@
 package leoguedex.com.github.ProjetoVendasAPIEstudos.controller;
 
-import leoguedex.com.github.ProjetoVendasAPIEstudos.domain.entity.Client;
-import leoguedex.com.github.ProjetoVendasAPIEstudos.repository.ClientRepository;
-import leoguedex.com.github.ProjetoVendasAPIEstudos.service.ClientService;
+import leoguedex.com.github.ProjetoVendasAPIEstudos.domain.entity.Cliente;
+import leoguedex.com.github.ProjetoVendasAPIEstudos.repository.ClienteRepository;
+import leoguedex.com.github.ProjetoVendasAPIEstudos.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,14 +17,14 @@ import java.net.URI;
 public class ClientController {
 
     @Autowired
-    private ClientRepository clientRepository;
+    private ClienteRepository clienteRepository;
 
-    private ClientService clientService;
+    private ClienteService clienteService;
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Void> inserirCliente(@RequestBody @Valid Client cliente){
-        clientService.inserirCliente(cliente);
+    public ResponseEntity<Void> inserirCliente(@RequestBody @Valid Cliente cliente){
+        clienteService.inserirCliente(cliente);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(cliente.getId()).toUri();
         return ResponseEntity.created(uri).build();

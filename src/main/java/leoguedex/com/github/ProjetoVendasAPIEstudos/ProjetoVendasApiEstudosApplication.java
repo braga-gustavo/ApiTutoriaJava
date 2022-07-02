@@ -1,6 +1,5 @@
 package leoguedex.com.github.ProjetoVendasAPIEstudos;
 
-import leoguedex.com.github.ProjetoVendasAPIEstudos.domain.entity.Client;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
