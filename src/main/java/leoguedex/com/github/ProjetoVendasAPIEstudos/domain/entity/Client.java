@@ -1,10 +1,10 @@
 package leoguedex.com.github.ProjetoVendasAPIEstudos.domain.entity;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.br.CPF;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -47,6 +47,5 @@ public class Client implements Serializable {
     @Column(name = "endereco")
     @Length(min = 5, max = 120, message = "o tamanho deve ser entre 5 e 120 letras")
     private String endereco;
-
 
 }
