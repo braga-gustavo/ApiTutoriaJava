@@ -32,31 +32,32 @@ public class PedidoService {
     private ProdutoRepository produtoRepository;
 
 
-//    public Pedido incluirPedido(PedidoDto pedidoDto) {
-//
-//        //Montar os itens do pedido
-//        validarItens(pedidoDto);
-//        //Encontrar o Cliente
-//        Cliente cliente = findCliente(pedidoDto);
-//        //Criar um novo Pedido
-//        Pedido pedido = builderPedido(pedidoDto, cliente);
-//
-//        List<ItemPedido> itens = builderItemPedido(pedidoDto, pedido);
-//
-//    }
+    public Pedido incluirPedido(PedidoDto pedidoDto) {
+
+        //Montar os itens do pedido
+        validarItens(pedidoDto);
+        //Encontrar o Cliente
+        Cliente cliente = findCliente(pedidoDto);
+        //Criar um novo Pedido
+        Pedido pedido = builderPedido(pedidoDto, cliente);
+
+        List<ItemPedido> itens = builderItemPedido(pedidoDto, pedido);
+        pedidoRepository.save(pedido);
+        itemPedidoRepository.saveAll(itens);
+
+        return pedido;
+    }
 
     private List<ItemPedido> builderItemPedido(PedidoDto pedidoDto, Pedido pedido) {
         return pedidoDto.getItens().stream()
                 .map(itemPedidoDto -> {
                     Produto produto =  produtoRepository.findById(itemPedidoDto.getProduto())
                             .orElseThrow(() -> new RegraDeNegocioException("Código de Produto Invalido"));
-                ItemPedido itemPedido = ItemPedido.builder()
+                    return ItemPedido.builder()
                         .pedido(pedido)
                         .produto(produto)
                         .quatidade(itemPedidoDto.getQuantidade())
                         .build();
-
-                return itemPedido;
                 })
                 .collect(Collectors.toList());
     }

@@ -5,7 +5,10 @@ import leoguedex.com.github.ProjetoVendasAPIEstudos.exception.ObjectNotFoundExce
 import leoguedex.com.github.ProjetoVendasAPIEstudos.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
@@ -17,17 +20,22 @@ public class ProdutoService {
     private ProdutoRepository produtoRepository;
 
     @Transactional
-    public Produto inserirProduto(Produto produto) {
+    public void inserirProduto(Produto produto) {
         produto.setId(null);
-        return produtoRepository.save(produto);
+        produtoRepository.save(produto);
     }
 
-    public Produto updateProduto(Produto produto) {
-        Produto prodToUpdate = new Produto();
-        prodToUpdate.setId(produto.getId());
-        prodToUpdate.setPreco(produto.getPreco());
-        prodToUpdate.setTitulo(prodToUpdate.getTitulo());
-        return produtoRepository.save(prodToUpdate);
+    public void updateProduto(Produto produto) {
+        produtoRepository.findById(produto.getId())
+                .map(produtoFound -> {
+                    produto.setId(produtoFound.getId());
+                    produtoRepository.save(produto);
+                    return Void.TYPE;
+                })
+                .orElseThrow(() -> {
+                    new ResponseStatusException(HttpStatus.NOT_FOUND, "Produce não Encontrado");
+                    return null;
+                });
     }
 
     public Produto find(Integer id) {
