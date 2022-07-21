@@ -1,4 +1,4 @@
-package leoguedex.com.github.ProjetoVendasAPIEstudos;
+package leoguedex.com.github.ProjetoVendasApiEstudos;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

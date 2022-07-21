@@ -1,4 +1,4 @@
-package leoguedex.com.github.ProjetoVendasAPIEstudos.domain.enums;
+package leoguedex.com.github.ProjetoVendasApiEstudos.domain.enums;
 
 
 public enum StatusPedido {

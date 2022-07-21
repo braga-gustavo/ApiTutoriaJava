@@ -1,10 +1,9 @@
-package leoguedex.com.github.ProjetoVendasAPIEstudos.domain.dto;
+package leoguedex.com.github.ProjetoVendasApiEstudos.domain.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
-
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 

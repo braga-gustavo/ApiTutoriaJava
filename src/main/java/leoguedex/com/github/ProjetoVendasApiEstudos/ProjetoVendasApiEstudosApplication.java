@@ -1,4 +1,4 @@
-package leoguedex.com.github.ProjetoVendasAPIEstudos;
+package leoguedex.com.github.ProjetoVendasApiEstudos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

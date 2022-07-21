@@ -1,4 +1,4 @@
-package leoguedex.com.github.ProjetoVendasAPIEstudos.exception;
+package leoguedex.com.github.ProjetoVendasApiEstudos.exception;
 
 public class ObjectNotFoundException extends RuntimeException {
 

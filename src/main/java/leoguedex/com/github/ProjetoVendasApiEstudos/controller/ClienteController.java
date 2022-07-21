@@ -1,23 +1,21 @@
-package leoguedex.com.github.ProjetoVendasAPIEstudos.controller;
+package leoguedex.com.github.ProjetoVendasApiEstudos.controller;
 
-import leoguedex.com.github.ProjetoVendasAPIEstudos.controller.api.ClienteAPI;
-import leoguedex.com.github.ProjetoVendasAPIEstudos.domain.dto.ClienteDto;
-import leoguedex.com.github.ProjetoVendasAPIEstudos.domain.entity.Cliente;
-import leoguedex.com.github.ProjetoVendasAPIEstudos.repository.ClienteRepository;
-import leoguedex.com.github.ProjetoVendasAPIEstudos.service.ClienteService;
+import leoguedex.com.github.ProjetoVendasApiEstudos.domain.dto.ClienteDto;
+import leoguedex.com.github.ProjetoVendasApiEstudos.domain.entity.Cliente;
+import leoguedex.com.github.ProjetoVendasApiEstudos.repository.ClienteRepository;
+import leoguedex.com.github.ProjetoVendasApiEstudos.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
 @RestController
 @RequestMapping("/cliente")
-public class ClienteController implements ClienteAPI {
+public class ClienteController {
 
     @Autowired
     private ClienteRepository clienteRepository;

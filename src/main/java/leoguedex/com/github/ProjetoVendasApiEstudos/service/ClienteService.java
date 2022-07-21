@@ -1,9 +1,9 @@
-package leoguedex.com.github.ProjetoVendasAPIEstudos.service;
+package leoguedex.com.github.ProjetoVendasApiEstudos.service;
 
-import leoguedex.com.github.ProjetoVendasAPIEstudos.domain.dto.ClienteDto;
-import leoguedex.com.github.ProjetoVendasAPIEstudos.domain.entity.Cliente;
-import leoguedex.com.github.ProjetoVendasAPIEstudos.exception.ObjectNotFoundException;
-import leoguedex.com.github.ProjetoVendasAPIEstudos.repository.ClienteRepository;
+import leoguedex.com.github.ProjetoVendasApiEstudos.domain.dto.ClienteDto;
+import leoguedex.com.github.ProjetoVendasApiEstudos.domain.entity.Cliente;
+import leoguedex.com.github.ProjetoVendasApiEstudos.exception.ObjectNotFoundException;
+import leoguedex.com.github.ProjetoVendasApiEstudos.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
